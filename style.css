@@ -9,6 +9,9 @@ body {
   font-family: "Motserrat", sans-serif;
   overflow-x: hidden;
 }
+body.hide {
+  overflow: hidden;
+}
 
 #logo {
   color: white;
@@ -24,6 +27,8 @@ body {
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
+  position: relative;
+  z-index: 2;
 }
 .line1,
 .line2 {
@@ -159,10 +164,12 @@ body {
 .cursor.nav-active {
   background: rgb(86, 124, 228);
   transform: scale(2.5);
+  opacity: 0.8;
 }
 .cursor.explore-active {
   background: white;
   transform: scale(2.5);
+  opacity: 0.8;
 }
 .cursor-text {
   position: absolute;
@@ -196,4 +203,59 @@ body {
 
 .scrollmagic-pin-spacer {
   position: static !important;
+}
+
+/* Other pages */
+.fashion1,
+.fashion2,
+.fashion3 {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  color: white;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+.fashion-img {
+  height: 70vh;
+  flex-basis: 30rem;
+}
+.fashion-text {
+  flex: 1;
+  position: relative;
+  flex-basis: 25rem;
+}
+.fashion-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fashion-text h1 {
+  font-size: 6rem;
+  padding: 5rem 0rem;
+}
+.fashion1 h1 {
+  color: rgb(255, 139, 93);
+}
+.fashion1 h2 {
+  color: rgb(167, 110, 231);
+}
+.fashion1 h3 {
+  color: rgb(86, 124, 228);
+}
+.fashion-text p {
+  font-size: 2rem;
+  padding: 2rem 2rem 0rem 0rem;
+  margin-bottom: 10rem;
+}
+.fashion-nr {
+  font-size: 15rem;
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  opacity: 0.2;
 }
