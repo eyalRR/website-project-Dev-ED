@@ -102,9 +102,79 @@ function navToggle(e){
     }
     
 }
+
+//Barba Page Transitions
+const logo = document.querySelector('#logo');
+barba.init({
+    views: [
+        {
+            namespace: "home",
+            beforeEnter(){
+                animateSlides();
+                logo.href = './index.html';
+            },
+            beforeLeave(){
+                slideScene.destroy();
+                pageScene.destroy();
+                controller.destroy();
+            }
+        },
+        {
+            namespace: "fashion",
+            beforeEnter(){
+                logo.href = "../index.html";
+                gsap.fromTo(
+                    ".nav-header", 
+                    1, 
+                    {y:'100%'}, 
+                    {y: '0%', ease: "power2.inOut"}
+                );
+            }
+        }
+    ],
+    transitions: [
+        {
+            leave({ current, next}) {
+                let done = this.async();
+                // An Animation
+                const tl = gsap.timeline({dafaults:{ ease: "power2.inOut"}});
+                tl.fromTo(
+                    current.container, 
+                    1, 
+                    { opacity:1 }, 
+                    { opacity:0, onComplete: done }
+                );
+                tl.fromTo(
+                    ".swipe",
+                    0.75,
+                    { x: "-100%" },
+                    { x: "0%", onComplete: done },
+                    "-=0.5"
+                );
+            },
+            enter({ current, next}) {
+                let done = this.async();
+                // An Animation
+                const tl = gsap.timeline({dafaults:{ ease: "power2.inOut"}});
+                tl.fromTo(
+                    ".swipe", 
+                    0.75,
+                    { x: "0%" },
+                    { x: "100%", stagger:0.2, onComplete: done },
+                );
+                tl.fromTo(
+                    next.container, 
+                    1, 
+                    { opacity:0 }, 
+                    { opacity:1 }
+                );
+            }
+        }
+    ]
+});
+
 // Event Listeners
 burger.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
 
-animateSlides();

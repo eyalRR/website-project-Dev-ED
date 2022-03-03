@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./style.css" />
     <title>Travel Website</title>
 </head>
-<body>
+<body data-barba="wrapper"> 
     <header class="nav-header">
         <h1><a href="./index.html" id="logo">days.</a></h1>
         <div class="burger">
@@ -21,7 +21,7 @@
             <div class="line2"></div>
         </div>
     </header>
-    <main>
+    <main data-barba="container" data-barba-namespace="home">
         <section class="mountain slide">
             <div class="hero-img">
                 <img src="./img/forest.png" alt="forest image">
@@ -66,9 +66,9 @@
             </div>
         </section>
         <!-- Section 3-->
-        <section class="fasion slide">
+        <section class="fashion slide">
             <div class="hero-img">
-                <img src="./img/fashion.png" alt="fasion image">
+                <img src="./img/fashion.png" alt="fashion image">
                 <div class="reveal-img"></div>
             </div>
             <div class="hero-desc">
@@ -84,6 +84,7 @@
                     delentini.
                 </p>
                 <a 
+                    id = "fas"
                     href="./fashion/index.html" 
                     class="explore fashion-exp">
                     Explore
